@@ -1,0 +1,20 @@
+<header>つぶやき一覧</header>
+<h1></h1>
+<p><%= notice %></p>
+<div>
+<table>
+  <tr>
+    <th>内容</th>
+  </tr>
+<% @mutters.each do |mutter| %>
+  <tr>
+    <td><%= mutter.content %></td>
+    <td><%= link_to '詳細を確認する', mutter_path(mutter.id) %></td>
+<td><%= link_to "編集する", edit_mutter_path(mutter.id), data: { confirm: '本当に編集していいですか？' } %> </td>  
+<td><%= link_to '削除する', mutter_path(mutter.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %> </td> </tr>
+<% end %>
+</table>
+</div>
+<br>
+<%= link_to '新しくつぶやく', new_mutter_path %>
+<footer></footer>
